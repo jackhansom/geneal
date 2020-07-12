@@ -19,4 +19,5 @@ urlpatterns = [
     path("db/", geneal.views.db, name="db"),
     path("create/", geneal.views.add_person, name="get_name"),
     path("admin/", admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

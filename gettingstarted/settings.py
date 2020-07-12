@@ -33,13 +33,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "geneal",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    "django.contrib.staticfiles",
-    "geneal",
+    "django.contrib.staticfiles"
 ]
 
 MIDDLEWARE = [
@@ -54,10 +54,16 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "gettingstarted.urls"
 
+LOGIN_REDIRECT_URL = '/'
+
+# Until email is implemented
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, 'templates')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

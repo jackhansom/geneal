@@ -1,7 +1,6 @@
-import requests
-
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 
 from .models import Person
 from .forms import NameForm
@@ -11,6 +10,7 @@ def index(request):
     return render(request, "index.html")
 
 
+@login_required
 def add_person(request):
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -36,6 +36,7 @@ def add_person(request):
     return render(request, 'new_person.html', {'form': form})
 
 
+@login_required
 def db(request):
 
     persons = Person.objects.all()
