@@ -29,7 +29,7 @@ def add_person(request):
             )
             new_person.save()
             # redirect to a new URL:
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/db')
     else:
         form = NameForm()
 
